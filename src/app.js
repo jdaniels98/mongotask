@@ -1,10 +1,11 @@
 require ("./db/connection")
+require("dotenv").config()
 const mongoose = require('mongoose')
 const yargs = require("yargs")
 const {createMovie, readMovie, updateMovie, deleteMovie} = require("./movie/movieFunction")
-const {createTV, readTV, updateTV, deleteTV} = require("./tvshows/tvFunction")
+const {createTV, readTV, updateTV, deleteTV} = require("./tv/tvFunction")
 const Movie = require("./movie/movieModel")
-const TV = require("./tvshows/tvModel")
+const TV = require("./tv/tvModel")
 
 
 const app = async (yargsObject) => {
@@ -12,11 +13,10 @@ const app = async (yargsObject) => {
         // create MOVIE
         if (yargsObject.create) {
             await createMovie({title: yargsObject.title, actor: yargsObject.actor})
-            console.log(await readMovie())
         }
         // read MOVIE
         else if (yargsObject.read){
-            console.log(await readMovie(yargsObject.key, yargsObject.filter))    
+            console.table(await readMovie(yargsObject.key, yargsObject.filter))    
         }
         // updateOne MOVIE
         else if (yargsObject.update){
@@ -24,21 +24,20 @@ const app = async (yargsObject) => {
                 {[yargsObject.filterKey]:yargsObject.filterValue}, 
                 {[yargsObject.updateKey]:yargsObject.updateValue},
             )
-            console.log(await readMovie())
+            console.table(await readMovie())
         }
         // deleteOne MOVIE
         else if (yargsObject.delete){
             await deleteMovie(yargsObject.key, yargsObject.filter)
-            console.log(await readMovie())
+            console.table(await readMovie())
         }
         // create TV
         if (yargsObject.createTV){
             await createTV({title: yargsObject.title, timeslot: yargsObject.timeslot, network: yargsObject.network, day: yargsObject.day})
-            console.log(await readTV())
         }
         // read TV
         else if (yargsObject.readTV){
-            console.log(await readTV(yargsObject.key, yargsObject.filter))
+            console.table(await readTV(yargsObject.key, yargsObject.filter))
             
         }
         // updateOne TV
@@ -47,12 +46,12 @@ const app = async (yargsObject) => {
                 {[yargsObject.filterKey]:yargsObject.filterValue}, 
                 {[yargsObject.updateKey]:yargsObject.updateValue},
             )
-            console.log(await readTV())
+            console.table(await readTV())
         }
         // deleteOne TV
         else if (yargsObject.deleteTV){
             await deleteTV(yargsObject.key, yargsObject.filter)
-            console.log(await readTV())
+            console.table(await readTV())
         }
         // Incorrect Input
         else {
