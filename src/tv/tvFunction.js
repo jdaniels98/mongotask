@@ -4,12 +4,11 @@ const TV = require("./tvModel")
 exports.createTV = async (tvObject) => {
     try {
         await TV.create(tvObject)
-    
+
     }
     catch(error) {
         console.log(error)
     }
-
 }
 
 exports.readTV = async (key, filter) => {
@@ -29,7 +28,6 @@ exports.readTV = async (key, filter) => {
 
 exports.updateTV = async (filterObject, updateObject) => {
     try {
-       
             return await TV.updateOne(filterObject, {
                 $set:updateObject
             })
