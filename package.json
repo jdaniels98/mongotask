@@ -1,0 +1,25 @@
+{
+  "name": "mongotask",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000m\u0000o\u0000n\u0000g\u0000o\u0000t\u0000a\u0000s\u0000k\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdaniels98/mongotask.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdaniels98/mongotask/issues"
+  },
+  "homepage": "https://github.com/jdaniels98/mongotask#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongoose": "^6.6.5",
+    "yargs": "^17.6.0"
+  }
+}
