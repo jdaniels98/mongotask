@@ -1,4 +1,3 @@
-require("dotenv").config()
 const Movie = require("./movieModel")
 
 exports.createMovie = async (movieObject) => {

@@ -1,5 +1,4 @@
 require ("./db/connection")
-require("dotenv").config()
 const mongoose = require('mongoose')
 const yargs = require("yargs")
 const {createMovie, readMovie, updateMovie, deleteMovie} = require("./movie/movieFunction")
@@ -12,7 +11,7 @@ const app = async (yargsObject) => {
     try {
         // create MOVIE
         if (yargsObject.create) {
-            await createMovie({title: yargsObject.title, actor: yargsObject.actor})
+            await createMovie({title: yargsObject.title, actor: yargsObject.actor, director: yargsObject.director})
         }
         // read MOVIE
         else if (yargsObject.read){
@@ -33,7 +32,7 @@ const app = async (yargsObject) => {
         }
         // create TV
         if (yargsObject.createTV){
-            await createTV({title: yargsObject.title, timeslot: yargsObject.timeslot, network: yargsObject.network, day: yargsObject.day})
+            await createTV({title: yargsObject.title, actor: yargsObject.actor, director: yargsObject.director})
         }
         // read TV
         else if (yargsObject.readTV){

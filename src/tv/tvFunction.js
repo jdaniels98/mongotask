@@ -1,4 +1,3 @@
-require("dotenv").config()
 const TV = require("./tvModel")
 
 exports.createTV = async (tvObject) => {
